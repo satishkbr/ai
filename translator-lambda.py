@@ -56,3 +56,22 @@ def lambda_handler(event, context):
     file_uri = 's3://my-audio-bucket-satish/Recording.mp3'
     transcription_job_name = f"transcription-{int(time.time())}"
     transcribe_file(transcription_job_name, file_uri, transcribe_client)
+''' create LambdaAudioTranscriptionRole and add below policies AmazonPollyFullAccess,AmazonS3FullAccess,AmazonTranscribeFullAccess,TranslateFullAccess and below online
+    policy to write logs to cloudwatch
+    {
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+create my-audio-bucket-satish bucket and upload the Recording.mp3 file to translate
+'''
+    
